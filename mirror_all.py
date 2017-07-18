@@ -58,6 +58,7 @@ for project in stash.projects:
                 # chdir into directory "ae" based on url of this repo, fetch, chdir back
                 cur_dir = os.getcwd()
                 os.chdir(repo_dir)
+                run_cmd("git fetch --prune")
                 mirror_url = string.replace(url["href"], part_to_change, part_to_replace_with)
                 run_cmd("git push --mirror %s" % mirror_url)
                 os.chdir(cur_dir)
